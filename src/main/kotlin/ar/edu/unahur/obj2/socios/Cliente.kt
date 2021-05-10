@@ -22,19 +22,21 @@ interface EstadoDeAnimo {
     fun propina(pedido: Pedido,bolsillo: Double) : Double
 }
 
-class Enojado() : EstadoDeAnimo {
+// Como los estados son unicos y no cambian en si, pasaron de ser clases a objetos.
+
+object Enojado : EstadoDeAnimo {
     override fun propina(pedido: Pedido,bolsillo: Double) = 0.0 //Pedido
 }
 
-class Feliz() : EstadoDeAnimo {
+object Feliz : EstadoDeAnimo {
     override fun propina(pedido: Pedido,bolsillo: Double) = pedido.precio * 0.25 //Deja como propina el 25% de lo que salió el pedido
 }
 
-class Indiferente() : EstadoDeAnimo {
+object Indiferente : EstadoDeAnimo {
     override fun propina(pedido: Pedido,bolsillo: Double) = bolsillo //Deja como propina lo que tenga en el bolsillo.
 }
 
-class Resfriado() : EstadoDeAnimo {
+object Resfriado : EstadoDeAnimo {
     override fun propina(pedido: Pedido,bolsillo: Double) = pedido.precio //Le invade el sentimiento de culpa y le deja de propina el 100% de lo que salió el pedido.
 }
 
