@@ -8,7 +8,7 @@ object Cliente { //Patron Singleton aplicado
     lateinit var barrio: Barrio
 
     //Getters
-    fun consultarPropina() = this.estadoDeAnimo.propina(pedido,bolsillo) //TRATAR DE SACAR BOLSILLO DEL PARAMETRO YA QUE SOLO SE UTILIZA EN 1 ESTADO DE ANIMO
+    fun consultarPropina() = this.estadoDeAnimo.propina(this)
     fun consultarPropinaBarrio() = this.barrio.cuenta(this.consultarPropina())
 
     //Setters
@@ -19,25 +19,25 @@ object Cliente { //Patron Singleton aplicado
 }
 
 interface EstadoDeAnimo {
-    fun propina(pedido: Pedido,bolsillo: Double) : Double
+    fun propina(cliente: Cliente) : Double
 }
 
 // Como los estados son unicos y no cambian en si, pasaron de ser clases a objetos.
 
 object Enojado : EstadoDeAnimo {
-    override fun propina(pedido: Pedido,bolsillo: Double) = 0.0 //Pedido
+    override fun propina(cliente: Cliente) = 0.0 //Pedido
 }
 
 object Feliz : EstadoDeAnimo {
-    override fun propina(pedido: Pedido,bolsillo: Double) = pedido.precio * 0.25 //Deja como propina el 25% de lo que salió el pedido
+    override fun propina(cliente: Cliente) = cliente.pedido.precio * 0.25 //Deja como propina el 25% de lo que salió el pedido
 }
 
 object Indiferente : EstadoDeAnimo {
-    override fun propina(pedido: Pedido,bolsillo: Double) = bolsillo //Deja como propina lo que tenga en el bolsillo.
+    override fun propina(cliente: Cliente) = cliente.bolsillo //Deja como propina lo que tenga en el bolsillo.
 }
 
 object Resfriado : EstadoDeAnimo {
-    override fun propina(pedido: Pedido,bolsillo: Double) = pedido.precio //Le invade el sentimiento de culpa y le deja de propina el 100% de lo que salió el pedido.
+    override fun propina(cliente: Cliente) = cliente.pedido.precio //Le invade el sentimiento de culpa y le deja de propina el 100% de lo que salió el pedido.
 }
 
 
