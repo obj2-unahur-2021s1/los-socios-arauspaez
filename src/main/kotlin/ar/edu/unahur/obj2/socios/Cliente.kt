@@ -28,35 +28,3 @@ class Indiferente() : EstadoDeAnimo {
 class Resfriado() : EstadoDeAnimo {
     override fun propina(pedido: Pedido,bolsillo: Double) = pedido.precio//Le invade el sentimiento de culpa y le deja de propina el 100% de lo que salió el pedido.
 }
-
-class Pedido (val nombre: String, val precio: Double){
-    //Implementar en un nuevo archivo.
-}
-
-abstract class Barrio{
-    //Implementar en un nuevo archivo.
-    abstract fun cuenta(monto: Double): Double
-}
-
-object lasRosas : Barrio() {
-    override fun cuenta(monto: Double) = monto + 50
-}
-
-object lasLauchas : Barrio() {
-    override fun cuenta(monto: Double) = monto / 2
-}
-
-object barrioVerde : Barrio() {
-    override fun cuenta(monto: Double): Double {
-        val montoBarrio = when {
-            monto <= 200 -> 200.0
-            else -> monto
-        }
-        return montoBarrio
-    }
-}
-
-object lasTorres : Barrio() {
-    override fun cuenta(monto: Double) = monto
-}
-
