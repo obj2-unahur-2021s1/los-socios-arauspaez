@@ -14,11 +14,10 @@ object lasLauchas : Barrio() {
 
 object barrioVerde : Barrio() {
     override fun cuenta(monto: Double): Double {
-        val montoBarrio = when {
+        return when {
             monto <= 200 -> 200.0
             else -> monto
         }
-        return montoBarrio
     }
 }
 
