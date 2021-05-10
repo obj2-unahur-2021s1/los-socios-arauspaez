@@ -1,6 +1,5 @@
 package ar.edu.unahur.obj2.socios
 
-//borrar este comentario
 
 object Cliente { //Patron Singleton aplicado
     lateinit var estadoDeAnimo: EstadoDeAnimo //Los atributos del creador fueron cambiados por 'lateinit var' ya que se van a declarar cuando sea necesario
