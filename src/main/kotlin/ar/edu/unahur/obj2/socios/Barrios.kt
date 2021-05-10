@@ -24,4 +24,3 @@ object barrioVerde : Barrio() {
 object lasTorres : Barrio() {
     override fun cuenta(monto: Double) = monto
 }
-
