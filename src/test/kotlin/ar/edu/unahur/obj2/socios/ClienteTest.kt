@@ -132,13 +132,13 @@ class ClienteTest : DescribeSpec({
 
   //CLIENTE INDIFERENTE
   describe("Un/a cliente INDIFERENTE") {
-    it("Va a dejar de propina 50") {
+    it("Va a dejar de propina 50 teniendo 50 en el bolsillo") {
       Cliente.cambiarEstadoDeAnimo(Indiferente)
       Cliente.cambiarBolsillo(50.0)
       Cliente.hacerPedido(pedidoHelado)
       Cliente.consultarPropina().shouldBe(50.0)
     }
-    it("Va a dejar de propina 300") {
+    it("Va a dejar de propina 300 teniendo 300 en el bolsillo") {
       Cliente.cambiarEstadoDeAnimo(Indiferente)
       Cliente.cambiarBolsillo(300.0)
       Cliente.hacerPedido(pedidoEmpanadas)
@@ -148,7 +148,7 @@ class ClienteTest : DescribeSpec({
 
   //CLIENTE INDIFERENTE QUE VIVE EN...
   describe("Un/a cliente INDIFERENTE que vive en LAS ROSAS") {
-    it("Va a dejar de propina 150 para un pedido de 1500") {
+    it("Va a dejar de propina 150 teniendo 100 en el bolsillo") {
       Cliente.cambiarBarrio(lasRosas)
       Cliente.cambiarEstadoDeAnimo(Indiferente)
       Cliente.cambiarBolsillo(100.0)
@@ -157,7 +157,7 @@ class ClienteTest : DescribeSpec({
     }
   }
   describe("Un/a cliente INDIFERENTE que vive en LAS LAUCHAS") {
-    it("Va a dejar de propina 75 para un pedido de 150") {
+    it("Va a dejar de propina 75 teniendo 150 en el bolsillo") {
       Cliente.cambiarBarrio(lasLauchas)
       Cliente.cambiarEstadoDeAnimo(Indiferente)
       Cliente.cambiarBolsillo(150.0)
@@ -166,14 +166,14 @@ class ClienteTest : DescribeSpec({
     }
   }
   describe("Un/a cliente INDIFERENTE que vive en BARRIO VERDE") {
-    it("Va a dejar de propina 200 para un pedido de 500") {
+    it("Va a dejar de propina 200 teniendo 100 en el bolsillo") {
       Cliente.cambiarBarrio(barrioVerde)
       Cliente.cambiarEstadoDeAnimo(Indiferente)
-      Cliente.cambiarBolsillo(200.0)
+      Cliente.cambiarBolsillo(100.0)
       Cliente.hacerPedido(pedidoMilanesa)
       Cliente.consultarPropinaBarrio().shouldBe(200.0)
     }
-    it("Va a dejar de propina 300 para un pedido de 500") {
+    it("Va a dejar de propina 300 teniendo 300 en el bolsillo") {
       Cliente.cambiarBarrio(barrioVerde)
       Cliente.cambiarEstadoDeAnimo(Indiferente)
       Cliente.cambiarBolsillo(300.0)
@@ -182,7 +182,7 @@ class ClienteTest : DescribeSpec({
     }
   }
   describe("Un/a cliente INDIFERENTE que vive en LAS TORRES") {
-    it("Va a dejar de propina 10 para un pedido de 1000") {
+    it("Va a dejar de propina 10 teniendo 10 en el bolsillo") {
       Cliente.cambiarBarrio(lasTorres)
       Cliente.cambiarEstadoDeAnimo(Indiferente)
       Cliente.cambiarBolsillo(10.0)
